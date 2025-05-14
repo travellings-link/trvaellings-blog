@@ -1,64 +1,86 @@
-# 🍥Fuwari
+# Travellings Blog
 
-A static blog template built with [Astro](https://astro.build).
+[![wakatime](https://wakatime.com/badge/github/travellings-link/travellings-blog.svg)](https://wakatime.com/badge/github/travellings-link/travellings-blog)  
+根据 内部未公开 的信息，我们将逐渐的将博客内容迁移至此
 
-[**🖥️ Live Demo (Vercel)**](https://fuwari.vercel.app)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-[**📦 Old Hexo Version**](https://github.com/saicaca/hexo-theme-vivia)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-[**🌏 中文**](https://github.com/saicaca/fuwari/blob/main/README.zh-CN.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-[**🌏 日本語**](https://github.com/saicaca/fuwari/blob/main/README.ja-JP.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-[**🌏 한국어**](https://github.com/saicaca/fuwari/blob/main/README.ko.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-[**🌏 Español**](https://github.com/saicaca/fuwari/blob/main/README.es.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;
-[**🌏 ไทย**](https://github.com/saicaca/fuwari/blob/main/README.th.md)
+## 框架
+- [fuwari](https://github.com/saicaca/fuwari)
+- [Astro](https://astro.build/)
 
-> README version: `2024-09-10`
+## 环境
+- Node.JS
+- pnpm
 
-![Preview Image](https://raw.githubusercontent.com/saicaca/resource/main/fuwari/home.png)
+## 使用
 
-## ✨ Features
+### 前期准备
 
-- [x] Built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com)
-- [x] Smooth animations and page transitions
-- [x] Light / dark mode
-- [x] Customizable theme colors & banner
-- [x] Responsive design
-- [ ] Comments
-- [x] Search
-- [ ] TOC
+1.安装pnpm
 
-## 🚀 How to Use
+```sh
+npm install pnpm
+```
 
-1. [Generate a new repository](https://github.com/saicaca/fuwari/generate) from this template or fork this repository.
-2. To edit your blog locally, clone your repository, run `pnpm install` AND `pnpm add sharp` to install dependencies.
-   - Install [pnpm](https://pnpm.io) `npm install -g pnpm` if you haven't.
-3. Edit the config file `src/config.ts` to customize your blog.
-4. Run `pnpm new-post <filename>` to create a new post and edit it in `src/content/posts/`.
-5. Deploy your blog to Vercel, Netlify, GitHub Pages, etc. following [the guides](https://docs.astro.build/en/guides/deploy/). You need to edit the site configuration in `astro.config.mjs` before deployment.
+2.初始化项目
 
-## ⚙️ Frontmatter of Posts
+```sh
+pnpm install
+pnpm add sharp
+```
+
+<a id="newblog"></a>
+### 创建新的博文
+
+fuwari原生支持MarkDown格式文本，只需要在终端运行以下命令：
+
+```sh
+pnpm new-post <name>
+```
+
+命令中的``<name>``请替换为需要创建的博文名，Astro会自动在``src\content\posts\``下创建对应的文件。
+
+## 关键文件结构
+
+```
+|- public #非代码资源存放位置
+|-- favicon #图标存放位置
+|-- image #图片资源存放位置
+|
+|- scripts #脚本文件，不要动
+|-- new-post.js
+|
+|- src #大部分代码文件存放位置
+|-- assets #资源文件存放位置
+|--- images #图片资源不建议使用该位置
+|-- components #组件
+|-- constants #定量
+|-- content
+|--- posts #博文主要存放位置
+|--- spec #独立页面存放位置
+|-- i18n #翻译
+|-- layouts #布局
+|-- config.ts #主配置文件
+|- astro.config.mjs #Astro配置文件，与config.ts不同
+```
+
+## Frontmatter
+
+在通过[第一节内容](#newblog)创建的文件中会自带以下内容，如果手动创建了文件则需要将以下模板填进去。
+不管是自动创建的还是手动添加，都请根据实际情况修改相应的内容
 
 ```yaml
 ---
-title: My First Blog Post
-published: 2023-09-09
-description: This is the first post of my new Astro blog.
+title: Blog Post
+published: 2024-11-4
+description: This is an description to the blog
 image: ./cover.jpg
 tags: [Foo, Bar]
 category: Front-end
 draft: false
-lang: jp      # Set only if the post's language differs from the site's language in `config.ts`
+lang: jp      # 仅当文章语言与 `config.ts` 中的网站语言不同时需要设置，但还是建议写一下
 ---
 ```
 
-## 🧞 Commands
+## 开发
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                             | Action                                           |
-|:------------------------------------|:-------------------------------------------------|
-| `pnpm install` AND `pnpm add sharp` | Installs dependencies                            |
-| `pnpm dev`                          | Starts local dev server at `localhost:4321`      |
-| `pnpm build`                        | Build your production site to `./dist/`          |
-| `pnpm preview`                      | Preview your build locally, before deploying     |
-| `pnpm new-post <filename>`          | Create a new post                                |
-| `pnpm astro ...`                    | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro --help`                 | Get help using the Astro CLI                     |
+请参照[Astro官方文档](https://docs.astro.build/zh-cn/getting-started/)

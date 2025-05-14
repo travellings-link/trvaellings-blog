@@ -43,8 +43,13 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		LinkPreset.Archive,
 		{
-			name: "About",
+			name: "关于",
 			url: "https://www.travellings.cn/docs/",
+			external: true,
+		},
+		{
+			name: "Travellinks！",
+			url: "https://www.travellings.cn/go.html",
 			external: true,
 		},
 		{
