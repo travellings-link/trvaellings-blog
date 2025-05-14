@@ -65,7 +65,7 @@ pnpm new-post <name>
 
 ## Frontmatter
 
-在通过[第一节内容](#newblog)创建的文件中会自带以下内容，如果手动创建了文件则需要将以下模板填进去。
+在通过[创建新的博文](#newblog)创建的文件中会自带以下内容，如果手动创建了文件则需要将以下模板填进去。
 不管是自动创建的还是手动添加，都请根据实际情况修改相应的内容
 
 ```yaml
@@ -77,14 +77,13 @@ image: ./cover.jpg
 tags: [Foo, Bar]
 category: Front-end
 draft: false
-lang: jp      # 仅当文章语言与 `config.ts` 中的网站语言不同时需要设置，但还是建议写一下
+lang: zh-CN      # 仅当文章语言与 `config.ts` 中的网站语言不同时需要设置，但还是建议写一下
 ---
 ```
 
 ## 开发
 
 请参照[Astro官方文档](https://docs.astro.build/zh-cn/getting-started/)
-
 
 ## 版权
 
