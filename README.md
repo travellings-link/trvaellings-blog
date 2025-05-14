@@ -1,6 +1,6 @@
 # Travellings Blog
 
-[![wakatime](https://wakatime.com/badge/github/travellings-link/travellings-blog.svg)](https://wakatime.com/badge/github/travellings-link/travellings-blog)  
+[![wakatime](https://wakatime.com/badge/user/f0d7a489-b175-4296-a369-88c92a96ffd5/project/bd12b892-f689-4d38-b366-d44b1775f643.svg)](https://wakatime.com/badge/user/f0d7a489-b175-4296-a369-88c92a96ffd5/project/bd12b892-f689-4d38-b366-d44b1775f643)
 根据 内部未公开 的信息，我们将逐渐的将博客内容迁移至此
 
 ## 框架
@@ -84,3 +84,8 @@ lang: jp      # 仅当文章语言与 `config.ts` 中的网站语言不同时需
 ## 开发
 
 请参照[Astro官方文档](https://docs.astro.build/zh-cn/getting-started/)
+
+
+## 版权
+
+2025 © Travellings-link Project. All rights reserved.
