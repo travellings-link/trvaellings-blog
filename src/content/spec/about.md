@@ -1,9 +1,25 @@
-# About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+<script setup>
+import Changelog from '/src/components/Changelog.vue'
+</script>
 
-::github{repo="saicaca/fuwari"}
+::: info 说明
+此处仅展示 Git 仓库的最近 100 条提交记录，更多信息请前往 [GitHub 仓库](https://github.com/travellings-link/travellings) 查看。
+:::
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+<Changelog>
+<template #date>
+时间
+</template>
+<template #message>
+更新内容
+</template>
+<template #author>
+提交者
+</template>
+<template #loading>
+正在从 GitHub 获取数据...
+</template>
+<template #more>
+前往 GitHub 查看更多
+</template>
+</Changelog>

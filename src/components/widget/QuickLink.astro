@@ -1,0 +1,29 @@
+---
+import ButtonLink from "../control/ButtonLink.astro";
+import WidgetLayout from "./WidgetLayout.astro";
+
+const quickLinks = [
+	{ name: "官网", url: "https://www.travellings.cn" },
+	{ name: "GitHub", url: "https://github.com/travellings-link/travellings" },
+	{ name: "爱发电", url: "https://afdian.com/a/travellings" },
+	{ name: "Travelling!", url: "https://www.travellings.cn/go.html" },
+];
+
+interface Props {
+	class?: string;
+	style?: string;
+}
+const className = Astro.props.class;
+const style = Astro.props.style;
+---
+
+<WidgetLayout name="快捷链接" id="quick-links" class={className} style={style}>
+  {quickLinks.map((link) => (
+    <ButtonLink
+      url={link.url}
+      label={`前往 ${link.name}`}
+    >
+      {link.name}
+    </ButtonLink>
+  ))}
+</WidgetLayout>
