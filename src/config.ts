@@ -47,16 +47,6 @@ export const navBarConfig: NavBarConfig = {
 			url: "https://www.travellings.cn/docs/",
 			external: true,
 		},
-		{
-			name: "Travellinks！",
-			url: "https://www.travellings.cn/go.html",
-			external: true,
-		},
-		{
-			name: "GitHub",
-			url: "https://github.com/travellings-link",
-			external: true,
-		},
 	],
 };
 
@@ -91,7 +81,7 @@ export const profileConfig: ProfileConfig = {
 };
 
 export const licenseConfig: LicenseConfig = {
-	enable: false,
-	name: "CC BY-NC-SA 4.0",
-	url: "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+	enable: true,
+	name: "GPL-3.0",
+	url: "https://www.gnu.org/licenses/gpl-3.0.en.html",
 };

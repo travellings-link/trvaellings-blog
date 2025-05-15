@@ -1,0 +1,74 @@
+---
+import WidgetLayout from "./WidgetLayout.astro";
+
+interface Props {
+	class?: string;
+	style?: string;
+}
+const className = Astro.props.class;
+const style = Astro.props.style;
+---
+
+<WidgetLayout name="本地时间" id="user-time" class={className} style={style}>
+  <div class="widget-content" id="user-time-content"></div>
+  <style>
+    .widget-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; /* 水平居中 */
+      height: 100%;
+      min-height: 60px;
+      font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
+      font-size: 1em;
+      line-height: 1.7;
+      color: #e5e7eb;
+      padding-left: 1.2em;
+      padding-right: 1.2em;
+      text-align: center; /* 水平居中文本 */
+    }
+    .widget-divider {
+      width: 80%;
+      border: none;
+      border-top: 1px solid #444;
+      margin: 0.5em 0;
+    }
+  </style>
+  <script>
+    function pad(n: number) { return n < 10 ? '0' + n : n }
+    function getUserTimeStr() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = pad(now.getMonth() + 1);
+      const day = pad(now.getDate());
+      const hour = pad(now.getHours());
+      const min = pad(now.getMinutes());
+      const sec = pad(now.getSeconds());
+      return `${year}-${month}-${day} ${hour}:${min}:${sec}`;
+    }
+    function getUserTimezone() {
+      return Intl.DateTimeFormat().resolvedOptions().timeZone;
+    }
+    function getTimezoneDiffStr() {
+      const now = new Date();
+      const localOffset = -now.getTimezoneOffset() / 60;
+      const cstOffset = 8;
+      const diff = localOffset - cstOffset;
+      if (diff === 0) return "您的时区与CST一致";
+      if (diff > 0) return `您的时区比CST快${diff}小时`;
+      return `您的时区比CST慢${-diff}小时`;
+    }
+    function renderUserTime() {
+      const el = document.getElementById('user-time-content');
+      if (!el) return;
+      el.innerHTML = `
+        <div>${getUserTimeStr()}</div>
+        <div>${getUserTimezone()}</div>
+        <hr class="widget-divider" />
+        <div style="color:var(--secondary);">${getTimezoneDiffStr()}</div>
+      `;
+    }
+    renderUserTime();
+    setInterval(renderUserTime, 1000);
+  </script>
+</WidgetLayout>
