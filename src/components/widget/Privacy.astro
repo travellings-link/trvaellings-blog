@@ -1,0 +1,47 @@
+---
+interface Props {
+	class?: string;
+	style?: string;
+}
+const className = Astro.props.class;
+const style = Astro.props.style;
+---
+
+<div
+    id="privacy-modal"
+    class={`fixed z-[9999] right-4 bottom-4 flex items-end justify-end pointer-events-none ${className ?? ''}`}
+    style={`display:none;${style ?? ''}`}
+>
+    <div class="card-base card-shadow pointer-events-auto max-w-xs w-full sm:w-[22rem] text-center p-4 sm:p-6 onload-animation shadow-lg sm:shadow-2xl rounded-xl sm:rounded-2xl">
+        <h3 class="mb-4 text-lg font-semibold">隐私政策提示</h3>
+        <div class="text-base mb-5 text-75">
+            我们重视您的隐私。请阅读我们的
+            <a
+                href="https://www.travellings.cn/announcements/privacy.html"
+                target="_blank"
+                class="link link-underline privacy-link"
+            >隐私政策</a>。
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    const modal = document.getElementById('privacy-modal');
+    window.addEventListener('load', function() {
+        if(localStorage.getItem('privacy-accepted')!=='1' && modal){
+            setTimeout(() => {
+                modal.style.display = 'flex';
+                setTimeout(() => {
+                    const card = modal.querySelector('.onload-animation');
+                    if(card) (card as HTMLElement).style.opacity = '1';
+                }, 10);
+                setTimeout(() => {
+                    localStorage.setItem('privacy-accepted','1');
+                    modal.style.display = 'none';
+                }, 3000);
+            }, 500); 
+        }
+    });
+})();
+</script>
