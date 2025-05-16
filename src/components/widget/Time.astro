@@ -10,28 +10,26 @@ const style = Astro.props.style;
 ---
 
 <WidgetLayout name="本地时间" id="user-time" class={className} style={style}>
-  <div class="widget-content" id="user-time-content"></div>
+  <div class="widget-content flex flex-col items-center justify-center min-h-[60px] px-5 py-3 text-center">
+    <div id="user-time-string" class="text-base font-semibold text-90"></div>
+    <div id="user-timezone" class="text-75 mt-1"></div>
+    <hr class="widget-divider my-2" />
+    <div id="user-timezone-diff" class="text-50 text-sm"></div>
+  </div>
   <style>
     .widget-content {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center; /* 水平居中 */
-      height: 100%;
-      min-height: 60px;
       font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', Arial, sans-serif;
       font-size: 1em;
       line-height: 1.7;
-      color: #e5e7eb;
-      padding-left: 1.2em;
-      padding-right: 1.2em;
-      text-align: center; /* 水平居中文本 */
+      color: var(--deep-text);
+      transition: color 0.2s;
     }
     .widget-divider {
       width: 80%;
       border: none;
-      border-top: 1px solid #444;
+      border-top: 1px solid var(--line-divider);
       margin: 0.5em 0;
+      transition: border-color 0.2s;
     }
   </style>
   <script>
@@ -59,14 +57,12 @@ const style = Astro.props.style;
       return `您的时区比CST慢${-diff}小时`;
     }
     function renderUserTime() {
-      const el = document.getElementById('user-time-content');
-      if (!el) return;
-      el.innerHTML = `
-        <div>${getUserTimeStr()}</div>
-        <div>${getUserTimezone()}</div>
-        <hr class="widget-divider" />
-        <div style="color:var(--secondary);">${getTimezoneDiffStr()}</div>
-      `;
+      const timeEl = document.getElementById('user-time-string');
+      const tzEl = document.getElementById('user-timezone');
+      const diffEl = document.getElementById('user-timezone-diff');
+      if (timeEl) timeEl.textContent = getUserTimeStr();
+      if (tzEl) tzEl.textContent = getUserTimezone();
+      if (diffEl) diffEl.textContent = getTimezoneDiffStr();
     }
     renderUserTime();
     setInterval(renderUserTime, 1000);
