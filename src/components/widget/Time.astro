@@ -9,7 +9,7 @@ const className = Astro.props.class;
 const style = Astro.props.style;
 ---
 
-<WidgetLayout name="本地时间" id="user-time" class={className} style={style}>
+<WidgetLayout name="时间" id="user-time" class={className} style={style}>
   <div class="widget-content flex flex-col items-center justify-center min-h-[60px] px-5 py-3 text-center">
     <div id="user-time-string" class="text-base font-semibold text-90"></div>
     <div id="user-timezone" class="text-75 mt-1"></div>
@@ -52,9 +52,9 @@ const style = Astro.props.style;
       const localOffset = -now.getTimezoneOffset() / 60;
       const cstOffset = 8;
       const diff = localOffset - cstOffset;
-      if (diff === 0) return "您的时区与CST一致";
-      if (diff > 0) return `您的时区比CST快${diff}小时`;
-      return `您的时区比CST慢${-diff}小时`;
+      if (diff === 0) return "您的时区与 CST 一致";
+      if (diff > 0) return `您的时区比 CST 快${diff}小时`;
+      return `您的时区比 CST 慢${-diff}小时`;
     }
     function renderUserTime() {
       const timeEl = document.getElementById('user-time-string');
