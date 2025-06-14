@@ -1,7 +1,10 @@
+<!-- 
+这是基于Fuwari的第一版；暂且称为V0 Beta，能用就行的版本。后续还会重新开发基于Astro的船新版本。虽然我知道你很急但是你先别急，先让我先急
+——洛寒兮
+-->
 # Travellings Blog
 
-[![wakatime](https://wakatime.com/badge/user/f0d7a489-b175-4296-a369-88c92a96ffd5/project/bd12b892-f689-4d38-b366-d44b1775f643.svg)](https://wakatime.com/badge/user/f0d7a489-b175-4296-a369-88c92a96ffd5/project/bd12b892-f689-4d38-b366-d44b1775f643)
-根据 内部未公开 的信息，我们将逐渐的将博客内容迁移至此
+根据 未公开 的信息，我们将逐渐的将博客内容迁移至此
 
 ## 框架
 - [fuwari](https://github.com/saicaca/fuwari)
